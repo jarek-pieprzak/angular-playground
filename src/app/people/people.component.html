@@ -1,7 +1,18 @@
-<!--<ul>-->
-  <!--<li *ngFor="let person of people$ | async">{{ person.name }}</li>-->
-<!--</ul>-->
+<div>
+  <h3>Countries</h3>
+  <p>fetched on init</p>
+  <ul>
+    <li *ngFor="let country of countries$">{{ country.country }}</li>
+  </ul>
+</div>
 
-<ul>
-  <li *ngFor="let country of countries$ | async">{{ country.country }}</li>
-</ul>
+<div>
+  <h3>People</h3>
+  <p>fetched after button click</p>
+  <button (click)="buttonOnClick()">Fetch people</button>
+  <ul>
+    <li *ngFor="let person of people$ ">{{ person.name }}</li>
+  </ul>
+</div>
+
+

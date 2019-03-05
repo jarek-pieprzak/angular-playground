@@ -7,22 +7,41 @@ import { PeopleService } from './people.service';
   styleUrls: ['./people.component.css']
 })
 export class PeopleComponent implements OnInit {
-  people$;
+  myObservable;
   countries$;
+  people$;
 
   constructor(private peopleService: PeopleService) { }
 
   fetchPeople() {
-    this.people$ = this.peopleService.fetchPeople();
+    this.myObservable = this.peopleService.fetchPeople().subscribe({
+      next: x => {
+        this.people$ = x;
+      },
+      error: err => console.error(err)
+    });
   }
 
   fetchCountries() {
-    this.countries$ = this.peopleService.fetchCountries();
+    this.peopleService.fetchCountries().subscribe({
+      next: x => {
+        this.countries$ = x;
+      },
+      error: err => console.error(err)
+    });
   }
 
   ngOnInit() {
-    this.fetchPeople();
     this.fetchCountries();
   }
+
+  buttonOnClick() {
+    this.fetchPeople();
+  }
+
+  // ngOnInit() {
+  //   const subs = this.fetchPeople().subscribe()
+  //   this.fetchCountries();
+  // }
 
 }
