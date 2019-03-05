@@ -1,4 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -14,16 +15,22 @@ import {AboutModule} from './about/about.module';
 import {ContactModule} from './contact/contact.module';
 import {SidenavComponent} from './sidenav/sidenav.component';
 import { IdGeneratorComponent } from './id-generator/id-generator.component';
+import { TimerComponent } from './timer/timer.component';
+import { PeopleComponent } from './people/people.component';
+import { PeopleService } from './people/people.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SidenavComponent,
-    IdGeneratorComponent
+    IdGeneratorComponent,
+    TimerComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatTabsModule,
@@ -33,7 +40,7 @@ import { IdGeneratorComponent } from './id-generator/id-generator.component';
     AppRoutingModule
   ],
   exports: [MatTabsModule],
-  providers: [],
+  providers: [ PeopleService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
