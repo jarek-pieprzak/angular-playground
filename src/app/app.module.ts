@@ -18,6 +18,7 @@ import { IdGeneratorComponent } from './id-generator/id-generator.component';
 import { TimerComponent } from './timer/timer.component';
 import { PeopleComponent } from './people/people.component';
 import { PeopleService } from './people/people.service';
+import {RxExamplesModule} from './rx-examples/rx-examples.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PeopleService } from './people/people.service';
     BrowserAnimationsModule,
     MatButtonModule,
     MatTabsModule,
+    RxExamplesModule,
     AboutModule,
     ContactModule,
     MatSidenavModule,
